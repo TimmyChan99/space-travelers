@@ -1,7 +1,7 @@
 const STORE_ROCKETS = 'space-travelers/rockets/STORE_ROCKETS';
 
 const initialState = {
-    isDataStored: false,
+  isDataStored: false,
 };
 
 export const storeRockets = (data) => ({
@@ -12,14 +12,14 @@ export const storeRockets = (data) => ({
 const rocketsReducer = (state = initialState, action) => {
   switch (action.type) {
     case STORE_ROCKETS:
-        return {
-            ...state,
-            isDataStored: true,
-            data: action.payload,
-        };
+      return {
+        ...state,
+        isDataStored: true,
+        data: action.payload,
+      };
 
-      default:
-        return state;
+    default:
+      return state;
   }
 };
 

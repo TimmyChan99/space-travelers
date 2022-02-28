@@ -3,7 +3,6 @@ import { storeRockets } from '../redux/rockets/rockets';
 
 const rocketAPI = 'https://api.spacexdata.com/v3/rockets';
 
-
 // const fetchRocketsAPI = async () => {
 //   const getData = await axios.get(rocketAPI);
 //   const res = getData.data;
@@ -19,8 +18,8 @@ const rocketAPI = 'https://api.spacexdata.com/v3/rockets';
 //   console.log(Rockets);
 // };
 
- const fetchRocketsAPI = () => async (dispatch) => {
-  const getData = await axios.get(rocketAPI);   
+const fetchRocketsAPI = () => async (dispatch) => {
+  const getData = await axios.get(rocketAPI);
   const res = getData.data;
   const Rockets = [];
   res.forEach((item) => {
@@ -28,10 +27,11 @@ const rocketAPI = 'https://api.spacexdata.com/v3/rockets';
     obj.id = item.id;
     obj.rocket_name = item.rocket_name;
     obj.description = item.description;
-    obj.image = item.flickr_images[0];
+    const firstImage = item.flickr_images[0];
+    obj.image = firstImage;
     Rockets.push(obj);
   });
   dispatch(storeRockets(Rockets));
 };
 
- export default fetchRocketsAPI;
+export default fetchRocketsAPI;
