@@ -3,21 +3,6 @@ import { storeRockets } from '../redux/rockets/rockets';
 
 const rocketAPI = 'https://api.spacexdata.com/v3/rockets';
 
-// const fetchRocketsAPI = async () => {
-//   const getData = await axios.get(rocketAPI);
-//   const res = getData.data;
-//   const Rockets = [];
-//   res.forEach((item) => {
-//     const obj = {};
-//     obj.id = item.id;
-//     obj.rocket_name = item.rocket_name;
-//     obj.description = item.description;
-//     obj.image = item.flickr_images[0];
-//     Rockets.push(obj);
-//   });
-//   console.log(Rockets);
-// };
-
 const fetchRocketsAPI = () => async (dispatch) => {
   const getData = await axios.get(rocketAPI);
   const res = getData.data;
