@@ -7,10 +7,14 @@ import { useSelector, useDispatch } from 'react-redux';
 const RokectsList = () => {
 
     const dispatch = useDispatch();
-    
+    const rocketsList = useSelector((state) => state.rocketsReducer);
+
   useEffect(()=> {
-    dispatch(fetchRocketsAPI());
+      if (!rocketsList.isDataStored) {
+          dispatch(fetchRocketsAPI());      
+      }   
   }, []);
+
 
     const keys = [
         { id: 1},
