@@ -2,12 +2,14 @@ import React from 'react';
 import Rocket from '../rocket/Rocket';
 import { useEffect } from 'react';
 import fetchRocketsAPI from '../../api/spacexdata';
+import { useSelector, useDispatch } from 'react-redux';
 
 const RokectsList = () => {
 
+    const dispatch = useDispatch();
+    
   useEffect(()=> {
-    fetchRocketsAPI()
-    console.log('fetch');
+    dispatch(fetchRocketsAPI());
   }, []);
 
     const keys = [
