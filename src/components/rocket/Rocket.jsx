@@ -1,15 +1,14 @@
 import React from 'react';
 import './rocket.css';
 
-const Rocket = () => {
+const Rocket = (props) => {
+    const { description, image, name } = props;
     return (
         <div className="rocket_container">
-            <img src="#" alt="rockect" />
+            <img src={image} alt="rockect" />
             <div>
-                <h3>Falcon</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                     Est autem, hic labore numquam ex odit facilis neque repudiandae commodi.
-                     Eligendi nisi asperiores quibusdam velit iste veniam possimus nihil maiores consectetur.</p>
+                <h3>{name}</h3>
+                <p>{description}</p>
                 <button type="button">Reserve Rocket</button>
             </div>
         </div>
