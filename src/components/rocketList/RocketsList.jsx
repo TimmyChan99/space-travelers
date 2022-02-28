@@ -1,7 +1,14 @@
 import React from 'react';
 import Rocket from '../rocket/Rocket';
+import { useEffect } from 'react';
+import fetchRocketsAPI from '../../api/spacexdata';
 
 const RokectsList = () => {
+
+  useEffect(()=> {
+    fetchRocketsAPI()
+    console.log('fetch');
+  }, []);
 
     const keys = [
         { id: 1},

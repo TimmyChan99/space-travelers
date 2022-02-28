@@ -13,7 +13,7 @@ export default function Header() {
       <nav>
         <ul>
           <li>
-            <NavLink to="rockets" className={(navData) => (navData.isActive ? 'active-style' : 'none')}>
+            <NavLink to="/" className={(navData) => (navData.isActive ? 'active-style' : 'none')}>
               Rockets
             </NavLink>
           </li>
