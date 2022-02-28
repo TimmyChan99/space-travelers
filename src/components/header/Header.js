@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import './header.css';
 import logo from './planet.png';
 
@@ -13,7 +14,11 @@ export default function Header() {
         <ul>
           <li>Rockets</li>
           <li>Missions</li>
-          <li>My Profile</li>
+          <li>
+            <NavLink to="my-profile" className={(navData) => (navData.isActive ? 'active-style' : 'none')}>
+              My Profile
+            </NavLink>
+          </li>
         </ul>
       </nav>
     </header>
