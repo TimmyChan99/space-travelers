@@ -23,6 +23,7 @@ const RokectsList = () => {
           image={item.image}
           name={item.rocket_name}
           id={item.id}
+          reserved={item.reserved}
         />
       </li>
     ));
