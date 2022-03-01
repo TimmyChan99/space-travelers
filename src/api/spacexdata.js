@@ -14,6 +14,7 @@ export const fetchRocketsAPI = async () => {
     obj.description = item.description;
     const firstImage = item.flickr_images[0];
     obj.image = firstImage;
+    obj.reserved = false;
     Rockets.push(obj);
   });
   return Rockets;
