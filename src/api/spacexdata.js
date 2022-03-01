@@ -32,3 +32,5 @@ export const getMissionsFromAPI = async () => {
   });
   return missions;
 };
+
+export default fetchRocketsAPI;
