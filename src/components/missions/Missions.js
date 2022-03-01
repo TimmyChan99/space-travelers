@@ -1,10 +1,19 @@
-import React from 'react';
-import missionsDatas from '../../datas/missions';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getMissionsDispatcher } from '../../redux/missions/missions';
 import Mission from './Mission';
 import './missions.css';
 
 export default function Missions() {
-  const missions = missionsDatas;
+  const dispatch = useDispatch();
+  const missionsDatas = useSelector((state) => state.missionsReducer);
+
+  useEffect(() => {
+    dispatch(getMissionsDispatcher());
+  }, []);
+
+  const missionsList = missionsDatas.data;
+  const missions = missionsList ? missionsList.map((mission) => <Mission key={mission.missionId} mission={mission} />) : [];
 
   return (
     <div className="missions-container">
@@ -14,9 +23,7 @@ export default function Missions() {
         <div className="mission-status-header">Status</div>
         <div className="mission-other-header">#</div>
       </div>
-      {missions.map((mission) => (
-        <Mission key={mission.missionId} mission={mission} />
-      ))}
+      {missions}
     </div>
   );
 }
