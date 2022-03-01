@@ -4,9 +4,7 @@ const INITIALIZE_MISSIONS = 'space-travelers/missions/INITIALIZE_MISSIONS';
 const GET_MISSIONS = 'space-travelers/missions/GET_MISSIONS';
 const TOGGLE_MISSION = 'space-travelers/missions/TOGGLE_MISSION';
 
-const initialState = {
-  isMissionsStored: false,
-};
+const initialState = {};
 
 export const initializeMissions = (data) => ({
   type: INITIALIZE_MISSIONS,
@@ -38,7 +36,6 @@ const missionsReducer = (state = initialState, action) => {
     case INITIALIZE_MISSIONS:
       return {
         ...state,
-        isMissionsStored: true,
         data: action.payload,
       };
     case GET_MISSIONS:
