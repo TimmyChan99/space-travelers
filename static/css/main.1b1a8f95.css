@@ -1,2 +1,0 @@
-@import url(https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap);*{box-sizing:border-box;margin:0;padding:0}body{font-family:Roboto Slab,serif}header{display:flex;justify-content:space-between}ul{list-style:none}.header-left,header ul{display:flex}.logo{width:30px}li{margin:5px}.header-missions,.mission-container{display:flex}.header-missions{margin:20px 0}.mission-name,.mission-name-header{width:100px}.mission-description,.mission-description-header{width:200px}
-/*# sourceMappingURL=main.1b1a8f95.css.map*/
