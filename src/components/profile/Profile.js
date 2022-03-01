@@ -6,6 +6,9 @@ export default function Profile() {
   const dispatch = useDispatch();
   const missionsDatas = useSelector((state) => state.missionsReducer);
 
+  const rockets = useSelector((state) => state.rocketsReducer.data);
+  const reservedRockets = rockets ? rockets.filter((rocket) => rocket.reserved === true) : [];
+
   useEffect(() => {
     dispatch(getMissionsDispatcher());
   }, []);
@@ -16,6 +19,14 @@ export default function Profile() {
   return (
     <>
       <div>My Profile</div>
+      <section className="rockets-section">
+        <h2>My Rockets</h2>
+        <ul>
+          {reservedRockets.map((rocket) => (
+            <li key={rocket.id}>{rocket.rocket_name}</li>
+          ))}
+        </ul>
+      </section>
       <div>
         <h2>My missions : </h2>
         <div>
