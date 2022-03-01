@@ -1,6 +1,8 @@
 import { fetchRocketsAPI } from '../../api/spacexdata';
 
 const GET_ROCKETS = 'space-travelers/rockets/GET_ROCKETS';
+const BOOKING_ROCKET = 'space-travelers/rockets/BOOKING_ROCKET';
+const CANCEL_ROCKET_BOOKING = 'space-travelers/rockets/ROCKET_BOOKING';
 
 const initialState = {
   isDataStored: false,
@@ -9,6 +11,16 @@ const initialState = {
 export const getRockets = (data) => ({
   type: GET_ROCKETS,
   payload: data,
+});
+
+export const bookRocket = (id) => ({
+  type: BOOKING_ROCKET,
+  payload: id,
+});
+
+export const cancelRocketBooking = (id) => ({
+  type: CANCEL_ROCKET_BOOKING,
+  payload: id,
 });
 
 export const getRocketsDispatcher = () => async (dispatch) => {
@@ -24,6 +36,18 @@ const rocketsReducer = (state = initialState, action) => {
         isDataStored: true,
         data: action.payload,
       };
+
+    case BOOKING_ROCKET:
+      const newData = state.data.map(rocket => {
+        const res = (rocket.id === action.payload ) ?  {...rocket, reserved: true} : {...rocket};
+       return res;
+      });
+      return {
+        isDataStored: true,
+        data: newData,
+      };
+    
+  
 
     default:
       return state;
