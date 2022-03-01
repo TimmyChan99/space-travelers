@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-
 const rocketAPI = 'https://api.spacexdata.com/v3/rockets';
 const missionAPI = 'https://api.spacexdata.com/v3/missions';
 
@@ -20,7 +19,6 @@ export const fetchRocketsAPI = async () => {
   return Rockets;
 };
 
-
 export const getMissionsFromAPI = async () => {
   const getData = await axios.get(missionAPI);
   const missions = [];
@@ -33,4 +31,3 @@ export const getMissionsFromAPI = async () => {
   });
   return missions;
 };
-
