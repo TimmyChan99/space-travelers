@@ -1,3 +1,4 @@
+import fetchRocketsAPI from "../../api/spacexdata";
 const STORE_ROCKETS = 'space-travelers/rockets/STORE_ROCKETS';
 
 const initialState = {
@@ -8,6 +9,11 @@ export const storeRockets = (data) => ({
   type: STORE_ROCKETS,
   payload: data,
 });
+
+export const getRocketsDispatcher = () => async (dispatch) => {
+  const rockets = await fetchRocketsAPI(); 
+   dispatch(storeRockets(rockets))
+};
 
 const rocketsReducer = (state = initialState, action) => {
   switch (action.type) {

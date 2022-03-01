@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Rocket from '../rocket/Rocket';
-import fetchRocketsAPI from '../../api/spacexdata';
+import { getRocketsDispatcher } from '../../redux/rockets/rockets';
 
 const RokectsList = () => {
   const dispatch = useDispatch();
@@ -9,7 +9,7 @@ const RokectsList = () => {
 
   useEffect(() => {
     if (!rocketsData.isDataStored) {
-      dispatch(fetchRocketsAPI());
+      dispatch(getRocketsDispatcher());
     }
   }, []);
 
