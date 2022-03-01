@@ -13,7 +13,8 @@ export default function Missions() {
   }, []);
 
   const missionsList = missionsDatas.data;
-  const missions = missionsList ? missionsList.map((mission) => <Mission key={mission.missionId} mission={mission} />) : [];
+  const missions = missionsList
+    ? missionsList.map((mission) => <Mission key={mission.missionId} mission={mission} />) : [];
 
   return (
     <div className="missions-container">
