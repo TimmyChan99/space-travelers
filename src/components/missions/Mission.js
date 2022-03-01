@@ -1,16 +1,20 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
+import { joinMissionDispatcher, leaveMissionDispatcher } from '../../redux/missions/missions';
 
 export default function Mission({ mission }) {
+  const dispatch = useDispatch();
+
   const handleJoinMission = (id) => {
-    console.log(id);
+    dispatch(joinMissionDispatcher(id));
   };
   const handleLeaveMission = (id) => {
-    console.log(id);
+    dispatch(leaveMissionDispatcher(id));
   };
 
   const status = mission.status ? (
-    <div className="active-mb"> Active Member</div>
+    <div className="active-mb">Active Member</div>
   ) : (
     <div className="no-active-mb"> NOT A MEMBER</div>
   );
