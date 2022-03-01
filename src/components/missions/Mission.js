@@ -1,16 +1,16 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-import { joinMissionDispatcher, leaveMissionDispatcher } from '../../redux/missions/missions';
+import { toggleMissionDispatcher } from '../../redux/missions/missions';
 
 export default function Mission({ mission }) {
   const dispatch = useDispatch();
 
   const handleJoinMission = (id) => {
-    dispatch(joinMissionDispatcher(id));
+    dispatch(toggleMissionDispatcher(id));
   };
   const handleLeaveMission = (id) => {
-    dispatch(leaveMissionDispatcher(id));
+    dispatch(toggleMissionDispatcher(id));
   };
 
   const status = mission.status ? (
