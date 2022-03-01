@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { storeRockets } from '../redux/rockets/rockets';
 
 const rocketAPI = 'https://api.spacexdata.com/v3/rockets';
 
