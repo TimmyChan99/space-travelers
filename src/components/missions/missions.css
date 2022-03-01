@@ -16,3 +16,11 @@
 .mission-description-header {
   width: 50%;
 }
+
+.active-mb {
+  background-color: turquoise;
+}
+
+.leave-mission-bt {
+  color: red;
+}

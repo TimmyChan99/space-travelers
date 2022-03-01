@@ -27,6 +27,7 @@ export const getMissionsFromAPI = async () => {
       missionId: item.mission_id,
       missionName: item.mission_name,
       description: item.description,
+      status: false,
     });
   });
   return missions;
