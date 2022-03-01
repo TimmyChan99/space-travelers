@@ -38,16 +38,25 @@ const rocketsReducer = (state = initialState, action) => {
       };
 
     case BOOKING_ROCKET:
-      const newData = state.data.map(rocket => {
+      const newDataBooking = state.data.map(rocket => {
         const res = (rocket.id === action.payload ) ?  {...rocket, reserved: true} : {...rocket};
        return res;
       });
       return {
         isDataStored: true,
-        data: newData,
+        data: newDataBooking,
+      };
+
+    case CANCEL_ROCKET_BOOKING:
+      const newDataCanceling = state.data.map(rocket => {
+        const res = (rocket.id === action.payload ) ?  {...rocket, reserved: false} : {...rocket};
+       return res;
+      });
+      return {
+        isDataStored: true,
+        data: newDataCanceling,
       };
     
-  
 
     default:
       return state;
