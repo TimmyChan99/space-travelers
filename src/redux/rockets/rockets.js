@@ -1,4 +1,4 @@
-import fetchRocketsAPI from '../../api/spacexdata';
+import { fetchRocketsAPI } from '../../api/spacexdata';
 
 const GET_ROCKETS = 'space-travelers/rockets/GET_ROCKETS';
 
