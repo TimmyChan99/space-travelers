@@ -1,18 +1,24 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './rocket.css';
 
-const Rocket = () => (
+const Rocket = ({ description, image, name }) => (
   <div className="rocket_container">
-    <img src="#" alt="rockect" />
-    <div>
-      <h3>Falcon</h3>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est autem, hic labore numquam ex odit facilis neque repudiandae commodi.
-        Eligendinisi asperiores quibusdam velit iste veniam possimus nihil maiores consectetur.
-      </p>
+    <div className="image_container">
+      <img src={image} alt="rockect" />
+    </div>
+    <div className="info_container">
+      <h3>{name}</h3>
+      <p>{description}</p>
       <button type="button">Reserve Rocket</button>
     </div>
   </div>
 );
+
+Rocket.propTypes = {
+  description: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+};
 
 export default Rocket;

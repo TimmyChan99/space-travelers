@@ -12,8 +12,8 @@ function App() {
       <div className="App" />
       <Routes>
         <Route path="my-profile" element={<Profile />} />
+        <Route path="/" element={<RokectsList />} />
         <Route path="missions" element={<Missions />} />
-        <Route path="rockets" element={<RokectsList />} />
       </Routes>
     </>
   );
