@@ -11,7 +11,7 @@ it('Test if Missions renders correctly', () => {
   const tree = renderer.create(
     <Provider store={store}>
       <Missions />
-    </Provider>,
+    </Provider>
   );
   expect(tree).toMatchSnapshot();
 });
@@ -25,13 +25,13 @@ it('Test if Mission renders correctly', () => {
   const tree = renderer.create(
     <Provider store={store}>
       <Mission mission={mission} />
-    </Provider>,
+    </Provider>
   );
   expect(tree).toMatchSnapshot();
 });
 
 it('Test if Rocket renders correctly', () => {
-  const rocket = {
+  const item = {
     description: 'description',
     image: 'https://test.com',
     name: 'Rocket',
@@ -40,8 +40,14 @@ it('Test if Rocket renders correctly', () => {
   };
   const tree = renderer.create(
     <Provider store={store}>
-      <Rocket rocket={rocket} />
-    </Provider>,
+      <Rocket
+        description={item.description}
+        image={item.image}
+        name={item.name}
+        id={item.id}
+        reserved={item.reserved}
+      />
+    </Provider>
   );
   expect(tree).toMatchSnapshot();
 });
@@ -50,7 +56,7 @@ it('Test if Rockets List renders correctly', () => {
   const tree = renderer.create(
     <Provider store={store}>
       <RocketsList />
-    </Provider>,
+    </Provider>
   );
   expect(tree).toMatchSnapshot();
 });
