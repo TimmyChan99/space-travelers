@@ -1,19 +1,10 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { getMissionsDispatcher } from '../../redux/missions/missions';
+import React from 'react';
+import { useSelector } from 'react-redux';
 
 export default function Profile() {
-  const dispatch = useDispatch();
-  const missionsDatas = useSelector((state) => state.missionsReducer);
-
+  const missionsList = useSelector((state) => state.missionsReducer.missions);
   const rockets = useSelector((state) => state.rocketsReducer.data);
   const reservedRockets = rockets ? rockets.filter((rocket) => rocket.reserved === true) : [];
-
-  useEffect(() => {
-    dispatch(getMissionsDispatcher());
-  }, []);
-
-  const missionsList = missionsDatas.data;
   const missions = missionsList || [];
 
   return (
