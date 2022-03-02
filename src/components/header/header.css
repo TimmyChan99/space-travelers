@@ -1,0 +1,28 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 0.5px solid gray;
+  padding-bottom: 20px;
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style: none;
+  margin-right: 20px;
+}
+
+.header-left,
+header ul,
+nav {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 45px;
+  margin: 10px;
+}
+
+li {
+  margin: 5px;
+}
