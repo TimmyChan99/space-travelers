@@ -11,9 +11,9 @@ function App() {
       <Header />
       <div className="App" />
       <Routes>
-        <Route path="my-profile" element={<Profile />} />
-        <Route path="/" element={<RokectsList />} />
-        <Route path="missions" element={<Missions />} />
+        <Route path="/space-travelers/my-profile" element={<Profile />} />
+        <Route path="/space-travelers/" element={<RokectsList />} />
+        <Route path="/space-travelers/missions" element={<Missions />} />
       </Routes>
     </>
   );
