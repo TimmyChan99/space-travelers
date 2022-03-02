@@ -1,57 +1,27 @@
 import { getMissionsFromAPI } from '../../api/spacexdata';
 
-const INITIALIZE_MISSIONS = 'space-travelers/missions/INITIALIZE_MISSIONS';
 const GET_MISSIONS = 'space-travelers/missions/GET_MISSIONS';
 const TOGGLE_MISSION = 'space-travelers/missions/TOGGLE_MISSION';
 
-const initialState = {};
-
-export const initializeMissions = (data) => ({
-  type: INITIALIZE_MISSIONS,
-  payload: data,
-});
-
-export const initializeMissionsDispatcher = () => async (dispatch) => {
-  const missions = await getMissionsFromAPI();
-  dispatch(initializeMissions(missions));
-};
-
-export const getMissions = () => ({
-  type: GET_MISSIONS,
-});
-
-export const getMissionsDispatcher = () => async (dispatch) => {
-  dispatch(getMissions());
-};
-
-export const toggleMission = (data) => ({
-  type: TOGGLE_MISSION,
-  payload: data,
-});
-
-export const toggleMissionDispatcher = (id) => (dispatch) => dispatch(toggleMission(id));
-
-const missionsReducer = (state = initialState, action) => {
+const missionsReducer = (state = {}, action) => {
   switch (action.type) {
-    case INITIALIZE_MISSIONS:
-      return {
-        ...state,
-        data: action.payload,
-      };
     case GET_MISSIONS:
       return {
         ...state,
+        isMissionsStored: true,
+        missions: action.payload,
       };
     case TOGGLE_MISSION: {
-      const s = state.data.map((e) => {
-        if (e.missionId === action.payload) {
-          return { ...e, status: !e.status };
+      const newMissions = state.missions.map((mission) => {
+        if (mission.missionId === action.payload) {
+          return { ...mission, status: !mission.status };
         }
-        return e;
+        return mission;
       });
       return {
         ...state,
-        data: s,
+        missions: newMissions,
+        isMissionsStored: true,
       };
     }
     default:
@@ -60,3 +30,18 @@ const missionsReducer = (state = initialState, action) => {
 };
 
 export default missionsReducer;
+
+export const getMissions = (data) => ({
+  type: GET_MISSIONS,
+  payload: data,
+});
+
+export const getMissionsDispatcher = () => async (dispatch) => {
+  const missions = await getMissionsFromAPI();
+  dispatch(getMissions(missions));
+};
+
+export const toggleMission = (data) => ({
+  type: TOGGLE_MISSION,
+  payload: data,
+});

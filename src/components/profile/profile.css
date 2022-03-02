@@ -1,0 +1,26 @@
+.my-profile {
+  display: flex;
+}
+
+.rockets-section,
+.missions-section {
+  width: 45%;
+  margin: 20px;
+}
+
+.rockets-section ul,
+.missions-section ul {
+  list-style: none;
+}
+
+.rockets-section li,
+.missions-section li {
+  padding: 20px;
+  border: 0.5px solid grey;
+  margin: 0;
+}
+
+.rockets-section h2,
+.missions-section h2 {
+  margin-bottom: 10px;
+}

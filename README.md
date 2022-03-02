@@ -6,6 +6,23 @@
 The application will allow users to book rockets and join selected space missions.
 Using data from the SpaceX API.
 
+The Space Travelers' Hub consists of Rockets, Missions, and the My Profile section.
+### Rockets
+The Rockets section displays a list of all available SpaceX rockets. Users can book each rocket by clicking the reservation button or cancel the previously made booking.
+
+![image](https://user-images.githubusercontent.com/92228303/156334547-ec9e2e67-290c-4553-897b-42d98eb70222.png)
+
+### Missions
+The Missions section displays a list of current missions along with their brief description and participation status. There is also a button next to each mission that allows users to join the selected mission or leave the mission the user joined earlier.
+
+![image](https://user-images.githubusercontent.com/92228303/156334739-500669f5-ef3c-4a09-8572-37217979873e.png)
+
+### My Profile
+The My Profile section displays all reserved rockets and space missions.
+
+![image](https://user-images.githubusercontent.com/92228303/156334877-080638b1-60a5-44c9-8a61-07d65c0e9393.png)
+
+
 ## Built With
 
 - HTML
